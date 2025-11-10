@@ -10,7 +10,6 @@ For a better user UX, we could benefit from adding bar charts to our application
 
 Data is the change of BMI over time.
 
-
 ## Forms
 
 ### Description
