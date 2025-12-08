@@ -4,7 +4,7 @@
 //           Danach werden die Daten im Graphen visualisiert.
 
 // Nutzer Einstellungen bezüglich Zeitraum abrufen
-    //HTTP Request vom Server: Daten des nötigen Zeitraums abrufen
+//   HTTP Request vom Server: Daten des nötigen Zeitraums abrufen
 // Graphen konfigurieren
 //  - X als Zeit als Zeitachse mit dem Start- und Enddatum kofigurieren
 //  - Y Die einzelnen Datenpunkte eintragen.
