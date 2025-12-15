@@ -1,26 +1,19 @@
-=== FORMULAR.HTML - Pseudocode ===
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>BMI Rechner</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/formular.css">
+    <script src="formular.js"></script>
 </head>
 
 <body>
     <h1>BMI Formular</h1>
     <form id="bmiForm">
         <input type="number" id="age" name="Age" placeholder="Age (Years)" required min="1" max="120">
-        <!-- Date and Time Input Field -->
-        <input type="datetime" id="date" name="date" required>
-        <!-- Weight Input Field -->
+        <input type="date" id="date" name="date" required>
         <input type="number" id="weight" name="weight" placeholder="Weight in Kg" required min="1" max="500">
-
-        <!-- Height Input Field -->
         <input type="number" id="height" name="height" placeholder="Height in cm" required min="50" max="250">
-
-        <!-- Submit Button -->
         <button type="button" onclick="calculateBMI()">BMI berechnen</button>
     </form>
     <div id="result" style="display:none;">
@@ -28,7 +21,7 @@
         <p id="bmiValue"></p>
         <p id="bmiCategory"></p>
     </div>
-    <div id="error" style="display:none; color:red;"></div>
+    <div id="error"></div>
 </body>
 
 </html>
