@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Einstellungen</title>
+        <link rel="stylesheet" href="../css/settings.css">
+        <script src="../js/setting.js" defer></script>
+    </head>
+    <body>
+        <button onclick="toggleDialog()">Einstellungen</button>
+        <dialog id="settingsDialog">
+            <h1>Einstellungen</h1>
+
+            <label for="language"><h5>Sprache:</h5></label>
+            <select name="language" id="language">
+                <option value="german">Deutsch</option>
+                <option value="english">Englisch</option>
+            </select>
+
+            <label for="theme"><h5>Theme:</h5></label>
+            <select name="theme" id="theme">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+            </select>
+
+            <br>
+
+            <label for="gender"><h5>Geschlecht:</h5></label>
+            <select name="gender" id="gender">
+                <option value="none">---</option>
+                <option value="male">Männlich</option>
+                <option value="female">Weiblich</option>
+            </select>
+
+            <h5>Graph-Einstellungen:</h5>
+            <label for="gender"><h5>Graph-Typ:</h5></label>
+
+            <br>
+
+            <button value="changePassword">Passwort ändern</button>
+            <button value="logout">Ausloggen</button>
+            
+            <br><br>
+            <button onclick="toggleDialog()">Schließen</button>
+        </dialog>
+    </body>
+</html>
