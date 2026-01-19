@@ -1,64 +1,45 @@
 BMI Web App — Plan
 
-1) Ziel & Scope
+1) Goal & Scope
 
-Eine kleine, modulare Web‑App zum Erfassen von Körperdaten (Gewicht & Größe), zur BMI‑Berechnung, Zielverfolgung und Visualisierung der Entwicklung
+A small, modular web app for recording body data (weight & height), calculating BMI, tracking goals and visualising progress.
 
-Out‑of‑scope v1: Benutzerverwaltung/Accounts, Synchronisation über Geräte, medizinische Beratung.
+Out of scope v1: User management/accounts, synchronisation across devices, medical advice.
 
-2) Kernfunktionen
+2) Core functions
 
-Formular (Eingabe)
-    Felder: Datum (default heute), Gewicht (kg), Größe (cm) [optional fix pro Nutzer], Notiz (optional).
+Form (input)
+    Fields: Date (default today), weight (kg), height (cm) [optional fixed per user], note (optional).
 
-    BMI direkt berechnet und angezeigt
+    BMI calculated and displayed directly
 
-    Validierung: Pflichtfelder, Bereichsprüfung (z. B. 30–300 kg, 120–230 cm), Nummernformat, leere Notizen erlaubt
+    Validation: mandatory fields, range check (e.g. 30–300 kg, 120–230 cm), number format, empty notes allowed
 
-    UX: Sofort‑Feedback, Fehlerhinweise, Tastatur‑/Enter‑Submit, Loader/Disable während Save
+    UX: immediate feedback, error messages, keyboard/enter submit, loader/disable during save
 
-Ziele (Tabellen‑Ansicht)
+Goals (table view)
 
-    Anlegen eines Zielgewichts mit Stichtag
+    Create a target weight with a deadline
 
-    Status/Progress (Gewicht, verbleibende Tage, Ampel‑Indikator)
+    Status/progress (weight, days remaining, traffic light indicator)
 
-    CRUD: Ziel erstellen/ändern/löschen, jeweils mit Bestätigung
+    CRUD: Create/change/delete goal, each with confirmation
 
-Graphen (Kurven)
+Graphs (curves)
 
-    Liniengraph Gewicht über Zeit; optional zweite Achse mit BMI‑Kurve.
+    Line graph of weight over time; optional second axis with BMI curve.
 
-    Aggregationen: letzte 7/30/90 Tage; Durchschnitt, Min/Max, Trendlinie.
+    Aggregations: last 7/30/90 days; average, min/max, trend line.
 
 
 Dashboard
 
-    Kacheln: Aktuelles Gewicht, aktueller BMI + Kategorie (Untergewicht/Normal/Über/Adipositas), Veränderung nach 7 Tagen
+    Tiles: current weight, current BMI + category (underweight/normal/overweight/obese), change after 7 days
 
----------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------ ---------------------------------------------------------------------------------------------------- -----------
 
-Plan.md — Tabellen-Feature für BMI-App
-Ziel
+Plan.md — Table feature for BMI app
+Goal
 
-Eine übersichtliche Tabelle soll dem Nutzer seine bisherigen BMI-Berechnungen anzeigen.
-Jede Zeile stellt eine Messung dar, inklusive Datum, Gewicht, Größe, berechnetem BMI und Bewertung (z. B. Normalgewicht, Übergewicht).
-
-Features
-
-Datentabelle: Anzeige aller gespeicherten BMI-Einträge
-
-Sortierung: Nach Datum oder BMI auf- und absteigend sortieren
-
-Filter: Optional Filter nach Zeitraum (z. B. letzte Woche, letzter Monat)
-
-Löschen: Einzelne oder mehrere Einträge entfernen
-
-
-Tabellenstruktur
-Spalte	Beschreibung	Typ / Format
-Datum	Zeitpunkt der Messung	Date (dd.mm.yyyy)
-Gewicht (kg)	Eingegebenes Gewicht	Number (z. B. 72.5)
-Größe (cm)	Eingegebene Körpergröße	Number (z. B. 178)
-BMI	Berechneter Wert (kg/m²)	Number (1 Dezimalstelle)
-Bewertung	Textliche Kategorie (z. B. „Normalgewicht“)	String
+A clear table should show the user their previous BMI calculations.
+Each row represents one measurement, in
