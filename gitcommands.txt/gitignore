@@ -1,0 +1,12 @@
+git init 
+git checkout -b new_branch             # create a new branch 
+git branch     # what branches do I have?
+git status 
+
+git pull origin develop 
+git pull origin feature/Formular_Eingabe
+
+git push -u origin feature/Formular_Eingabe
+git push -u origin develop
+
+

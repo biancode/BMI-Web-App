@@ -25,17 +25,19 @@ h1 {
     border: 1px solid #e0e0e0;
 }
 
-/* Input fields styling */
 input[type="number"],
 input[type="date"] {
     width: 100%;
+    max-width: 350px;
+    margin: 0 auto 15px auto;
+    /* ← Auto links/rechts = zentriert */
     padding: 12px;
-    margin-bottom: 15px;
     border: 2px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
     transition: border-color 0.3s ease;
     font-family: Arial, sans-serif;
+    display: block;
 }
 
 /* Focus state for inputs */
