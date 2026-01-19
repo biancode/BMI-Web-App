@@ -31,7 +31,7 @@ body {
 .sidebar {
   background: #fff;
   border: 2px solid #333;
-  min-height: calc(100vh - 2rem); /* passt zu container-fluid py-3 */
+  min-height: calc(100vh - 2rem);
 }
 
 .sidebar-title {
