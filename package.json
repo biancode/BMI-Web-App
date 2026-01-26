@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "bootstrap": "^5.3.8"
-=======
   "name": "bmi-web-app",
   "version": "1.0.0",
   "description": "Lerneinheit LF10",
@@ -28,6 +24,5 @@
   "devDependencies": {
     "@playwright/test": "^1.57.0",
     "eslint": "^9.39.2"
->>>>>>> develop
   }
 }
