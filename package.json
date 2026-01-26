@@ -18,8 +18,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx playwright test --ui",
+    "lint": "npx eslint"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "eslint": "^9.39.2"
   }
 }
