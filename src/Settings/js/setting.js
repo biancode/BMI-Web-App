@@ -1,7 +1,5 @@
 // Saved Settings
 let settings = {
-    language: 'german',
-    theme: 'dark',
     gender: 'none'
 };
 
@@ -25,8 +23,6 @@ function toggleDialog() {
 }
 
 function saveSettings() {
-    settings.language = document.getElementById('language').value;
-    settings.theme = document.getElementById('theme').value;
     settings.gender = document.getElementById('gender').value;
     
     // Save settings in local storage
@@ -35,8 +31,6 @@ function saveSettings() {
 }
 
 function loadSettings() {
-    document.getElementById('language').value = settings.language;
-    document.getElementById('theme').value = settings.theme;
     document.getElementById('gender').value = settings.gender;
 }
 
@@ -45,7 +39,5 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSettingsFromStorage();
     loadSettings();
     
-    document.getElementById('language').addEventListener('change', saveSettings);
-    document.getElementById('theme').addEventListener('change', saveSettings);
     document.getElementById('gender').addEventListener('change', saveSettings);
 });
