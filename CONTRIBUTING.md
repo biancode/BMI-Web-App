@@ -1,23 +1,61 @@
 # Contributing
 
-## Rules
+## Projektregeln
 
 ### Naming Rules
 
-- Use underscores for seperating words in filenames example and lowercasing only `line_graph.js` or `dashboard.js`
+- Dateinamen in lowercase halten
+- Wo moeglich Unterstriche fuer mehrteilige Namen verwenden (z. B. `line_graph.js`)
 
-### Directory structure
+### Directory Structure
 
-- Put all CSS(Cascading Style Sheet) into the `src/css` Folder the naming should be `css/feature_name.css` 
-- Put all Javascript files into the `src/js` Folder the naming should be `js/feature_name.js`
-- All HTML Files are put directly into the `src` Folder named as `src/feature_name.html`
+- Feature-Code liegt in `src/`
+- Dokumentation liegt in `docs/`
+- Gemeinsame Standards und Qualitaetsregeln stehen in dieser Datei
 
-## Technologies
+## Technologien
 
 ### CSS
 
-- Bootstrap [bootstrap](https://getbootstrap.com/)
+- Bootstrap: <https://getbootstrap.com/>
 
-### Javascript
+### JavaScript
 
-- We will use Charts.js for visualizing Data [chartjs](www.chartjs.org)
+- Chart.js: <https://www.chartjs.org/>
+
+## Tests und Qualitaet
+
+### Voraussetzungen
+
+```bash
+npm install
+```
+
+### Linting
+
+```bash
+npm run lint
+npm run lint:fix
+```
+
+### End-to-End-Tests (Playwright)
+
+```bash
+# Browser einmalig installieren
+npm run test:e2e:install-browsers
+
+# Alle konfigurierten Browser
+npm run test:e2e
+
+# Einzelne Browser
+npm run test:e2e:chrome
+npm run test:e2e:edge
+npm run test:e2e:firefox
+```
+
+### Aktueller Testfokus
+
+- Dashboard-View
+- Menue-Navigation
+- Smoke-Tests fuer Dashboard, Forms und Tables
+- Ausfuehrung in Chrome, Edge und Firefox
