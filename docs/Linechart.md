@@ -1,15 +1,21 @@
-# Overview
+# Linechart
 
-The line chart visualizes the BMI Data over time.
+## Zweck der View
 
-## Data
+Die Linechart-Ansicht zeigt BMI-Werte als Verlaufskurve ueber die Zeit.
 
-Currently the data uses a mock object which contains all datapoints. Later on it should read the necessary data
-from the local storage. 
+## Was die View bietet
 
-# Integration
+- Visualisierung von BMI-Daten als Liniendiagramm
+- Darstellung auf einem `canvas`-Element
+- Grundlage fuer Trendbeobachtung statt Einzelwert-Betrachtung
 
-To integrate the line chart into the dashboard you can either use
-the id `bmi-chart` __or__ you can call the javascript function `plotChart` with a different canvas id.
+## Datenstand
 
-__NOTE__: The Linechart must be a element of type `<canvas>`
+- Aktuell werden Mock-Daten verwendet
+- Zielbild: Uebernahme der Daten aus `localStorage` oder einer zentralen Datenquelle
+
+## Hinweise zur Einbindung
+
+- Die Chart-Logik erwartet ein `canvas`-Element
+- Standard-ID in der View: `bmi-chart`
