@@ -46,4 +46,4 @@ Hinweis: Bitte nicht per `file://` oeffnen, da einige Inhalte per `fetch()` gela
 Alle Infos fuer Entwicklung, Standards, Tests und Qualitaet:
 
 - [Contributing Guide](./CONTRIBUTING.md)
-- [Technische Doku im docs-Ordner](./docs/)
+- [Documentation Index](./docs/README.md)

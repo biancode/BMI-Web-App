@@ -1,19 +1,19 @@
 # Contributing
 
-## Projektregeln
+## Project Rules
 
 ### Naming Rules
 
-- Dateinamen in lowercase halten
-- Wo moeglich Unterstriche fuer mehrteilige Namen verwenden (z. B. `line_graph.js`)
+- Keep file names in lowercase
+- Use underscores for multi-word names where appropriate (for example `line_graph.js`)
 
 ### Directory Structure
 
-- Feature-Code liegt in `src/`
-- Dokumentation liegt in `docs/`
-- Gemeinsame Standards und Qualitaetsregeln stehen in dieser Datei
+- Feature code belongs in `src/`
+- Documentation belongs in `docs/`
+- Shared standards and quality rules are defined in this file
 
-## Technologien
+## Technologies
 
 ### CSS
 
@@ -23,9 +23,9 @@
 
 - Chart.js: <https://www.chartjs.org/>
 
-## Tests und Qualitaet
+## Tests and Quality
 
-### Voraussetzungen
+### Prerequisites
 
 ```bash
 npm install
@@ -38,24 +38,24 @@ npm run lint
 npm run lint:fix
 ```
 
-### End-to-End-Tests (Playwright)
+### End-to-End Tests (Playwright)
 
 ```bash
-# Browser einmalig installieren
+# Install browsers once
 npm run test:e2e:install-browsers
 
-# Alle konfigurierten Browser
+# Run all configured browser projects
 npm run test:e2e
 
-# Einzelne Browser
+# Run a single browser project
 npm run test:e2e:chrome
 npm run test:e2e:edge
 npm run test:e2e:firefox
 ```
 
-### Aktueller Testfokus
+### Current Test Focus
 
-- Dashboard-View
-- Menue-Navigation
-- Smoke-Tests fuer Dashboard, Forms und Tables
-- Ausfuehrung in Chrome, Edge und Firefox
+- Dashboard view
+- Menu navigation
+- Smoke tests for Dashboard, Forms, and Tables
+- Execution in Chrome, Edge, and Firefox
