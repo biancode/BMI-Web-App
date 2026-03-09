@@ -213,4 +213,15 @@
   } else {
     tablesInit();
   }
+
+  if (window.__TABLES_TEST__) {
+    window.__tablesTestUtils = {
+      calculateBMI,
+      getBMICategory,
+      filterEntries,
+      sortEntries,
+      isWithinDays,
+      tablesInit,
+    };
+  }
 })();

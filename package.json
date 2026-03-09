@@ -10,6 +10,10 @@
     "lint": "eslint \"src/**/*.js\"",
     "lint:fix": "eslint \"src/**/*.js\" --fix",
     "lint:report": "eslint \"src/**/*.js\" --format stylish",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:component": "vitest run tests/component",
+    "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
@@ -33,6 +37,8 @@
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.58.2",
     "eslint": "^10.0.1",
-    "globals": "^17.3.0"
+    "globals": "^17.3.0",
+    "jsdom": "^28.1.0",
+    "vitest": "^4.0.18"
   }
 }

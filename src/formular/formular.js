@@ -200,7 +200,22 @@ function initForm() {
   loadFromLocalStorage();
 }
 
-window.calculateBMI = calculateBMI;
-window.clearData = clearData;
+if (typeof window !== "undefined") {
+  window.calculateBMI = calculateBMI;
+  window.clearData = clearData;
+}
 
-document.addEventListener("DOMContentLoaded", initForm);
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", initForm);
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    calculateBMIValue,
+    getBMICategory,
+    validateInputs,
+    validateRange,
+    normalizeCategoryClass,
+    getStoredBMIData,
+  };
+}
