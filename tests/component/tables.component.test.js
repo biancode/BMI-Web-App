@@ -1,6 +1,11 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect, beforeEach, vi } from "vitest";
 
 async function loadTablesModule() {
+  // ESM modules are cached across dynamic imports in a test file.
+  // Reset module cache so the IIFE in tables.js runs fresh per test.
+  vi.resetModules();
+  delete window.tablesInit;
+  delete window.__tablesTestUtils;
   window.__tablesLoaded = false;
   window.__TABLES_TEST__ = true;
   await import("../../src/tables/tables.js");
