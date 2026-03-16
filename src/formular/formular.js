@@ -83,18 +83,38 @@ function validateInputs({ age, date, weight, height }) {
 ========================================================= */
 
 function getStoredBMIData() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  try {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return JSON.parse(data || "[]");
+  } catch (error) {
+    console.error("Error reading from localStorage:", error);
+    showError("Fehler beim Laden der Daten.");
+    return [];
+  }
 }
+
 
 function saveBMIData(entry) {
-  const data = getStoredBMIData();
-  data.push(entry);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  try {
+    const data = getStoredBMIData();
+    data.push(entry);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    console.log("Data saved successfully");
+  } catch (error) {
+    console.error("Error saving to localStorage:", error);
+    showError("Fehler beim Speichern der Daten. LocalStorage könnte voll oder deaktiviert sein.");
+  }
 }
 
+
 function getLastBMIEntry() {
-  const data = getStoredBMIData();
-  return data[data.length - 1];
+  try {
+    const data = getStoredBMIData();
+    return data[data.length - 1];
+  } catch (error) {
+    console.error("Error getting last entry:", error);
+    return null;
+  }
 }
 
 /* =========================================================
@@ -118,12 +138,25 @@ function normalizeCategoryClass(category) {
     .replace("ö", "oe");
 }
 
-function showError(message) {
-  const errorEl = document.getElementById("error");
-  if (!errorEl) return;
+function showToast(message, type = "danger") {
+  const container = document.getElementById("toastContainer");
 
-  errorEl.textContent = message;
-  showElement("error");
+  const toastEl = document.createElement("div");
+  toastEl.className = `toast align-items-center text-bg-${type} border-0`;
+
+  toastEl.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">${message}</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  `;
+
+  container.appendChild(toastEl);
+
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+
+  toastEl.addEventListener("hidden.bs.toast", () => toastEl.remove());
 }
 
 function hideError() {
@@ -135,6 +168,7 @@ function hideError() {
 ========================================================= */
 
 function calculateBMI() {
+  console.log("hello")
   const input = {
     age: Number(getInputValue("age")),
     date: getInputValue("date"),
@@ -145,7 +179,7 @@ function calculateBMI() {
   const validationError = validateInputs(input);
 
   if (validationError) {
-    showError(validationError);
+    showToast(validationError);
     return;
   }
 
@@ -168,28 +202,43 @@ function calculateBMI() {
 ========================================================= */
 
 function loadFromLocalStorage() {
-  const data = getLastBMIEntry();
-  if (!data) return;
+  try {
+    const data = getLastBMIEntry();
+    if (!data) return;
 
-  setInputValue("age", data.age);
-  setInputValue("date", data.date);
-  setInputValue("weight", data.weight);
-  setInputValue("height", data.height);
+    setInputValue("age", data.age);
+    setInputValue("date", data.date);
+    setInputValue("weight", data.weight);
+    setInputValue("height", data.height);
 
-  if (data.bmi && data.category) {
-    displayResult(data.bmi, data.category);
+    if (data.bmi && data.category) {
+      displayResult(data.bmi, data.category);
+    }
+
+    console.log("Data loaded successfully");
+  } catch (error) {
+    console.error("Error loading from localStorage:", error);
+    showError("Fehler beim Laden der gespeicherten Daten.");
   }
 }
 
+
 function clearData() {
-  localStorage.removeItem(STORAGE_KEY);
+  try {
+    localStorage.removeItem(STORAGE_KEY);
 
-  ["age", "date", "weight", "height"].forEach((id) =>
-    setInputValue(id, "")
-  );
+    ["age", "date", "weight", "height"].forEach((id) =>
+      setInputValue(id, "")
+    );
 
-  hideElement("result");
-  hideError();
+    hideElement("result");
+    hideError();
+
+    console.log("Data cleared successfully");
+  } catch (error) {
+    console.error("Error clearing localStorage:", error);
+    showError("Fehler beim Löschen der Daten.");
+  }
 }
 
 /* =========================================================
