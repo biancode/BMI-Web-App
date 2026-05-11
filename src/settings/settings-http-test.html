@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings HTTP Test</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
+      color: #1f2937;
+    }
+
+    .layout {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    h1, h2 {
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      background: #2563eb;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    #clearBtn,
+    #clearGraphTypeBtn {
+      background: #dc2626;
+    }
+
+    #clearBtn:hover,
+    #clearGraphTypeBtn:hover {
+      background: #b91c1c;
+    }
+
+    pre {
+      margin: 0;
+      min-height: 44px;
+      padding: 10px;
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 6px;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 520px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <main class="layout">
+    <section class="card">
+      <h1>HTTP-Test fuer Einstellungen</h1>
+      <p>Diese Seite ist nur zum Testen. Das eigentliche Konstrukt von settings und graphTypeBtn bleibt unveraendert.</p>
+    </section>
+
+    <section class="card" aria-labelledby="storageTitle">
+      <h2 id="storageTitle">LocalStorage Kontrolle: userSettings</h2>
+      <div class="actions">
+        <button id="refreshBtn" type="button">Storage neu laden</button>
+        <button id="clearBtn" type="button">userSettings loeschen</button>
+      </div>
+      <pre id="storagePreview">(keine Daten im LocalStorage)</pre>
+    </section>
+
+    <section class="card" aria-labelledby="graphTypeStorageTitle">
+      <h2 id="graphTypeStorageTitle">LocalStorage Kontrolle: graphType</h2>
+      <div class="actions">
+        <button id="refreshGraphTypeBtn" type="button">graphType neu laden</button>
+        <button id="clearGraphTypeBtn" type="button">graphType loeschen</button>
+      </div>
+      <pre id="graphTypeStoragePreview">(keine Daten im LocalStorage)</pre>
+    </section>
+
+    <section class="card" aria-labelledby="componentTitle">
+      <h2 id="componentTitle">Eingebettete Settings-Komponente</h2>
+      <p>Oeffne im eingebetteten Bereich den Einstellungen-Button, aendere Werte und schliesse den Dialog. Danach oben auf "Storage neu laden" klicken.</p>
+      <iframe src="./settings.html" title="Settings Komponente"></iframe>
+    </section>
+
+    <section class="card" aria-labelledby="graphTypeComponentTitle">
+      <h2 id="graphTypeComponentTitle">Eingebetteter GraphType-Button</h2>
+      <p>Klicke den Button, um zwischen Balken- und Liniendiagramm umzuschalten. Danach oben auf "graphType neu laden" klicken.</p>
+      <iframe src="./graphType/graphType-http-test-host.html" title="GraphType Button"></iframe>
+    </section>
+  </main>
+
+  <script>
+    const SETTINGS_KEY = "userSettings";
+    const GRAPH_TYPE_KEY = "graphType";
+
+    function updatePreview() {
+      const preview = document.getElementById("storagePreview");
+      const raw = localStorage.getItem(SETTINGS_KEY);
+      preview.textContent = raw || "(keine Daten im LocalStorage)";
+    }
+
+    function updateGraphTypePreview() {
+      const preview = document.getElementById("graphTypeStoragePreview");
+      const raw = localStorage.getItem(GRAPH_TYPE_KEY);
+      preview.textContent = raw || "(keine Daten im LocalStorage)";
+    }
+
+    document.getElementById("refreshBtn").addEventListener("click", updatePreview);
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      localStorage.removeItem(SETTINGS_KEY);
+      updatePreview();
+    });
+
+    document.getElementById("refreshGraphTypeBtn").addEventListener("click", updateGraphTypePreview);
+    document.getElementById("clearGraphTypeBtn").addEventListener("click", () => {
+      localStorage.removeItem(GRAPH_TYPE_KEY);
+      updateGraphTypePreview();
+    });
+
+    window.addEventListener("storage", () => {
+      updatePreview();
+      updateGraphTypePreview();
+    });
+
+    updatePreview();
+    updateGraphTypePreview();
+  </script>
+</body>
+</html>

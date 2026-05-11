@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GraphType Button Test Host</title>
+  <link rel="stylesheet" href="../../../public/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./graphTypeBtn.css">
+</head>
+<body>
+  <button id="graphTypeBtn" onclick="toggleGraphType()" aria-describedby="graphTypeHelp graphTypeStatus">
+    Balkendiagramm
+  </button>
+  <p id="graphTypeHelp" class="sr-only">
+    Schaltet zwischen Balken- und Liniendiagramm um. Die Auswahl wird gespeichert.
+  </p>
+  <p id="graphTypeStatus" class="sr-only" role="status" aria-live="polite"></p>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="errorToast" class="toast text-bg-danger border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body" id="errorToastBody">Fehler</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fehlermeldung schliessen"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../../public/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./graphTypeBtn.js" defer></script>
+</body>
+</html>

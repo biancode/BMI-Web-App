@@ -1,10 +1,12 @@
 <html>
     <head>
         <title>Einstellungen</title>
+        <link rel="stylesheet" href="../../public/bootstrap-5.3.8-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="./settings.css">
     </head>
     <body>
         <button onclick="toggleDialog()" aria-label="Einstellungen öffnen">Einstellungen</button>
+
         <dialog id="settingsDialog" aria-labelledby="settingsTitle" aria-describedby="settingsDialogDesc settingsStatus">
             <h1 id="settingsTitle">Einstellungen</h1>
             <p id="settingsDialogDesc" class="sr-only">
@@ -30,6 +32,16 @@
             <br><br>
             <button onclick="toggleDialog()" aria-label="Einstellungen schließen">Schließen</button>
         </dialog>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="errorToast" class="toast text-bg-danger border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body" id="errorToastBody">Fehler</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fehlermeldung schließen"></button>
+                </div>
+            </div>
+        </div>
     </body>
+    <script src="../../public/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="./settings.js" defer></script>
 </html>

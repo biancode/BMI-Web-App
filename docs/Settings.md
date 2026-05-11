@@ -1,15 +1,14 @@
 # Settings
 
-## Purpose
+## Übersicht
+Das Settings-Feature ermöglicht es Benutzern, ihre persönlichen Einstellungen zu konfigurieren. Alle Einstellungen werden persistent im Browser-localStorage gespeichert.
 
 The Settings view stores basic user preferences in browser `localStorage`.
 
 ## What This View Provides
 
-- A dialog that can be opened and closed
-- A gender selector with values `none`, `male`, and `female`
-- Persistent settings storage under `userSettings`
-- A separate graph type toggle feature stored under `graphType` (`bar` or `line`)
+### Beschreibung
+Verwaltet benutzerspezifische Einstellungen wie das Geschlecht oder das Datumsformat. Nach jeder Änderung werden die Daten automatisch im localStorage gespeichert und bleiben auch nach einem Neustart der Anwendung erhalten.
 
 ## Data Model
 
@@ -17,13 +16,21 @@ The Settings view stores basic user preferences in browser `localStorage`.
 
 ```json
 {
-  "gender": "none"
+  "gender": "none" | "male" | "female",
+  "dateFormat": "YYYY-MM-DD" / "YYYY-MM-DD HH:mm"
 }
 ```
 
 ### `graphType`
 
-Saved by the graph type toggle feature:
+#### Initialisierung
+```javascript
+// Standard-Einstellungen
+let settings = {
+    gender: 'none',
+    dateFormat: 'YYYY-MM-DD'
+};
+```
 
 - `bar`
 - `line`
@@ -35,7 +42,17 @@ Saved by the graph type toggle feature:
 3. Close the dialog
 4. Re-open the app and confirm the setting is still selected
 
-Graph type flow (separate view):
+// Bei Änderung der Einstellungen
+function updateGender(newGender) {
+    settings.gender = newGender;
+    saveSettingsToStorage();
+}
+
+function updateDateFormat(newFormat) {
+    settings.dateFormat = newFormat;
+    saveSettingsToStorage();
+}
+```
 
 1. Open `settings/graphType/graphTypeBtn.html`
 2. Click the button to toggle between bar and line
